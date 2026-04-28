@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://drk0rsujtjg87"]
+
+[ext_resource type="Script" uid="uid://capk5ujoijxq4" path="res://player.gd" id="1_y8w33"]
+[ext_resource type="Texture2D" uid="uid://3w3rdt2ohcdo" path="res://icon.svg" id="2_xa75v"]
+[ext_resource type="PackedScene" uid="uid://ciifwivv57h7u" path="res://Scene/mobile_control.tscn" id="3_xa75v"]
+[ext_resource type="Script" uid="uid://cs3yiu1ewbnyi" path="res://Scripts/Statemachine/state_machine.gd" id="4_ivevv"]
+[ext_resource type="Script" uid="uid://cp71tbc4hx0xi" path="res://Scripts/Statemachine/idle.gd" id="5_ivevv"]
+[ext_resource type="Script" uid="uid://cbcssyu8dip13" path="res://Scripts/Statemachine/move.gd" id="6_p6qlh"]
+[ext_resource type="Script" uid="uid://cmot2lw1047vv" path="res://Scripts/Statemachine/jump.gd" id="7_2sw5t"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_58ae2"]
+radius = 30.0
+height = 124.0
+
+[node name="Player" type="CharacterBody2D" unique_id=176017359]
+script = ExtResource("1_y8w33")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1221294047]
+texture = ExtResource("2_xa75v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1026342066]
+shape = SubResource("CapsuleShape2D_58ae2")
+
+[node name="MobileControl" type="CanvasLayer" parent="." unique_id=639053031]
+
+[node name="MobileControl" parent="MobileControl" unique_id=469569565 instance=ExtResource("3_xa75v")]
+anchors_preset = 12
+anchor_top = 1.0
+grow_vertical = 0
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1296014499]
+
+[node name="StateMachine" type="Node" parent="." unique_id=1845375211 node_paths=PackedStringArray("initialstate", "player_ref")]
+script = ExtResource("4_ivevv")
+initialstate = NodePath("Idle")
+player_ref = NodePath("..")
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=673998031]
+script = ExtResource("5_ivevv")
+
+[node name="Move" type="Node" parent="StateMachine" unique_id=845263779]
+script = ExtResource("6_p6qlh")
+
+[node name="Jump" type="Node" parent="StateMachine" unique_id=607004598]
+script = ExtResource("7_2sw5t")
