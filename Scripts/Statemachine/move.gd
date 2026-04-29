@@ -10,12 +10,13 @@ func physics_process(delta:float)->void:
 	if !player.is_on_floor():
 		player.velocity.y+= 980* delta
 	
-	var direction=Input.get_axis("ui_right","ui_left")
+	var direction=Input.get_axis("ui_left","ui_right")
 	
-	if direction:
-		player.velocity.x= direction * Move_Speed
-	else:
+	if direction==0:
 		statemachine.change_state("idle")
+	#else:
+	
+	player.velocity.x = direction * Move_Speed
 
 func handle_input(event:InputEvent)->void:
 	if Input.is_action_just_pressed("ui_accept"):

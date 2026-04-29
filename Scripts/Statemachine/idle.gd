@@ -2,8 +2,6 @@ extends StateInterface
 
 class_name IdleState
 
-func enter()->void:
-	pass
 
 func physics_process(delta:float)->void:
 	var player=statemachine.player_ref

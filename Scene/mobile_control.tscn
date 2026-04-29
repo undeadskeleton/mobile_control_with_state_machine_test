@@ -60,7 +60,6 @@ layout_mode = 2
 clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 3
-offset_transform_enabled = true
 
 [node name="PanelContainer" type="PanelContainer" parent="Control/HBoxContainer/jump&dashcontainer/HBoxContainer/Control" unique_id=1868143765]
 layout_mode = 1
@@ -73,12 +72,11 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_sg7mv")
 [node name="Jump" type="TouchScreenButton" parent="Control/HBoxContainer/jump&dashcontainer/HBoxContainer/Control/PanelContainer" unique_id=1377073448]
 texture_normal = ExtResource("2_6po4f")
 action = "ui_accept"
+visibility_mode = 1
 
 [node name="Control2" type="Control" parent="Control/HBoxContainer/jump&dashcontainer/HBoxContainer" unique_id=479197376]
 layout_mode = 2
 size_flags_horizontal = 3
-offset_transform_enabled = true
-offset_transform_pivot_ratio = Vector2(1, 0.5)
 
 [node name="PanelContainer" type="PanelContainer" parent="Control/HBoxContainer/jump&dashcontainer/HBoxContainer/Control2" unique_id=567805491]
 layout_mode = 1
@@ -92,3 +90,4 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_6po4f")
 rotation = 1.5707964
 texture_normal = ExtResource("2_6po4f")
 action = "Dash"
+visibility_mode = 1

@@ -13,9 +13,8 @@ func _ready() -> void:
 		if child is StateInterface:
 			states[child.name.to_lower()]=child
 			child.statemachine=self
-	
 	if initialstate:
-		change_state(initialstate.name)	
+		change_state(initialstate.name.to_lower())
 	
 
 func change_state(new_state_name)->void:
@@ -23,7 +22,7 @@ func change_state(new_state_name)->void:
 		currentstate.exit()
 	
 	currentstatename=new_state_name
-	currentstate=states.get(new_state_name.to_lower())
+	currentstate = states.get(currentstatename)
 	
 	if currentstate:
 		currentstate.enter()
@@ -33,7 +32,6 @@ func change_state(new_state_name)->void:
 func _physics_process(delta: float) -> void:
 	if currentstate:
 		currentstate.physics_process(delta)
-		
 func _process(delta: float) -> void:
 	if currentstate:
 		currentstate.process(delta)
