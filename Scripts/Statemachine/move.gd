@@ -11,13 +11,14 @@ func physics_process(delta:float)->void:
 		player.velocity.y+= 980* delta
 	
 	var direction=Input.get_axis("ui_left","ui_right")
-	
+	statemachine.last_dir=direction
 	if direction==0:
 		statemachine.change_state("idle")
-	#else:
 	
 	player.velocity.x = direction * Move_Speed
 
 func handle_input(event:InputEvent)->void:
 	if Input.is_action_just_pressed("ui_accept"):
 		statemachine.change_state("jump")
+	if Input.is_action_just_pressed("Dash"):
+		statemachine.change_state("dash")

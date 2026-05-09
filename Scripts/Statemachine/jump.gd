@@ -14,12 +14,12 @@ func physics_process(delta:float)->void:
 		player.velocity.y+= delta * 980
 		
 	if player.is_on_floor():
-		if direction==0:
-			statemachine.change_state("idle")
-		else:
+		if direction!=0:
 			statemachine.change_state("move")
+		else:
+			statemachine.change_state("idle")
 
 func handle_input(event:InputEvent)->void:
-	var player=statemachine.get_parent()
-	
+	#var player=statemachine.get_parent()
+	pass
 	

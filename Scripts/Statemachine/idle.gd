@@ -2,6 +2,9 @@ extends StateInterface
 
 class_name IdleState
 
+func enter()->void:
+	var player=statemachine.player_ref
+	player.velocity.x = 0
 
 func physics_process(delta:float)->void:
 	var player=statemachine.player_ref
@@ -13,3 +16,6 @@ func handle_input(event:InputEvent)->void:
 		statemachine.change_state("move")
 	if Input.is_action_just_pressed("ui_accept"):
 		statemachine.change_state("jump")
+	if Input.is_action_just_pressed("Dash"):
+		statemachine.change_state("dash")
+					

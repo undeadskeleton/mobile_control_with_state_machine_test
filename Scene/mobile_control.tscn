@@ -8,6 +8,11 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sg7mv"]
 bg_color = Color(6.3532593e-06, 0.7031424, 0.55162984, 1)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sg7mv"]
+load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
+
+[sub_resource type="ImageTexture" id="ImageTexture_6po4f"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6po4f"]
 bg_color = Color(0.9290864, 0.40526265, 0.46385688, 1)
 
@@ -70,7 +75,9 @@ grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_sg7mv")
 
 [node name="Jump" type="TouchScreenButton" parent="Control/HBoxContainer/jump&dashcontainer/HBoxContainer/Control/PanelContainer" unique_id=1377073448]
-texture_normal = ExtResource("2_6po4f")
+modulate = Color(1, 1, 1, 0.30588236)
+texture_normal = SubResource("CompressedTexture2D_sg7mv")
+texture_pressed = SubResource("ImageTexture_6po4f")
 action = "ui_accept"
 visibility_mode = 1
 

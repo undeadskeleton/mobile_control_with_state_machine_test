@@ -7,7 +7,7 @@ var states : Dictionary ={}
 var currentstate: StateInterface
 var currentstatename : String
 @export var player_ref : CharacterBody2D
-
+var last_dir : int = 1
 func _ready() -> void:
 	for child in get_children():
 		if child is StateInterface:

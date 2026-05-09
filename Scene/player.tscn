@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://cbcssyu8dip13" path="res://Scripts/Statemachine/move.gd" id="6_p6qlh"]
 [ext_resource type="Script" uid="uid://cmot2lw1047vv" path="res://Scripts/Statemachine/jump.gd" id="7_2sw5t"]
 [ext_resource type="Script" uid="uid://cu7wublngu5em" path="res://Scene/state_debug.gd" id="8_2sw5t"]
+[ext_resource type="Script" uid="uid://dkmwlm3cv45qu" path="res://Scripts/Statemachine/dash.gd" id="8_ij4jb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_58ae2"]
 radius = 30.0
@@ -44,6 +45,9 @@ script = ExtResource("6_p6qlh")
 
 [node name="Jump" type="Node" parent="StateMachine" unique_id=607004598]
 script = ExtResource("7_2sw5t")
+
+[node name="Dash" type="Node" parent="StateMachine" unique_id=652923101]
+script = ExtResource("8_ij4jb")
 
 [node name="StateDebug" type="Label" parent="." unique_id=1664992136 node_paths=PackedStringArray("statemachine")]
 offset_left = -16.0

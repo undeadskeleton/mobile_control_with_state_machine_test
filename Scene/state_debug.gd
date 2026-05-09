@@ -8,5 +8,5 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	text = str(statemachine.currentstate) + "velocity.x"+str(statemachine.player_ref.velocity.x)
+	text = str(statemachine.currentstate.name) + "    velocity.x"+str(statemachine.player_ref.velocity.x)
 	pass
