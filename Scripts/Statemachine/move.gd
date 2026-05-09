@@ -3,7 +3,7 @@ extends StateInterface
 class_name MoveState
 
 @export var Move_Speed : float = 479.45
-
+var states_last_dir : int 
 func physics_process(delta:float)->void:
 	var player=statemachine.player_ref
 	
@@ -11,8 +11,9 @@ func physics_process(delta:float)->void:
 		player.velocity.y+= 980* delta
 	
 	var direction=Input.get_axis("ui_left","ui_right")
-	statemachine.last_dir=direction
+	states_last_dir=direction
 	if direction==0:
+		statemachine.last_dir = states_last_dir
 		statemachine.change_state("idle")
 	
 	player.velocity.x = direction * Move_Speed

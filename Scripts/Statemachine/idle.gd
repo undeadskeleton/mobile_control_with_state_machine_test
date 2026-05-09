@@ -5,6 +5,7 @@ class_name IdleState
 func enter()->void:
 	var player=statemachine.player_ref
 	player.velocity.x = 0
+	print("The last dir: ",statemachine.last_dir)
 
 func physics_process(delta:float)->void:
 	var player=statemachine.player_ref
