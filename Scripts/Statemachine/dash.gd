@@ -11,7 +11,17 @@ func enter()->void:
 func physics_process(delta:float)->void:
 	var player= statemachine.player_ref
 	player.velocity.x=statemachine.last_dir*Dash_Speed
-	timer = dash_timer - delta
 	
-	if timer <=0.0:
-		statemachine.change_state("idle")
+	timer=dash_timer
+
+	print("Start")
+	if timer >= 0.0:
+		print(timer)
+		#statemachine.change_state("idle")
+	else:
+		print("Timer ran out")
+		
+	timer = timer - delta
+	print("End")
+
+	
