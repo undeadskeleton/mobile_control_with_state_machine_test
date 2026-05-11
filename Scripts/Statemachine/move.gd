@@ -11,7 +11,8 @@ func physics_process(delta:float)->void:
 		player.velocity.y+= 980* delta
 	
 	var direction=Input.get_axis("ui_left","ui_right")
-	states_last_dir=direction
+	statemachine.last_dir=direction
+	states_last_dir=statemachine.last_dir
 	if direction==0:
 		statemachine.last_dir = states_last_dir
 		statemachine.change_state("idle")
